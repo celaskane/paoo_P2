@@ -1,0 +1,23 @@
+<mat-card>
+    <form (submit)="onSalvarRecomendacao(recomendacaoForm)" #recomendacaoForm="ngForm">
+        <mat-form-field appearance="fill">
+            <mat-label>Digite uma recomendação</mat-label>
+            <input
+                matInput 
+                type="text" 
+                name="corpo" 
+                [ngModel]="recomendacao?.corpo"
+                required
+                minlenght="3"
+            />
+            <button 
+                *ngif="true" 
+                matSuffix 
+                mat-icon-button>
+            <mat-icon>close</mat-icon>
+            </button>
+            <mat-error>Pelo menos três caracteres</mat-error>
+        </mat-form-field>
+        <button mat-stroked-button color="accent">Salvar Recomendação</button>
+    </form>
+</mat-card>

@@ -1,0 +1,14 @@
+<mat-accordion *ngIf="recomendacoes.length > 0">
+    <mat-expansion-panel *ngFor="let rec of recomendacoes | orderBy">
+        <mat-expansion-panel-header><b>Recomendação</b></mat-expansion-panel-header>
+        <p>{{rec.corpo}}</p>
+        
+        <mat-action-row>
+            <p><i>{{rec.tempo | date:'dd/MM/yyyy HH:mm:ss'}}</i> </p>
+           <!--<button mat-button color="primary" routerlink="['/editar', rec.id]">EDITAR</button> --> 
+            <button mat-button color="warn" (click)="onDelete(rec.id)">REMOVER</button>    
+        </mat-action-row>
+    </mat-expansion-panel>
+</mat-accordion>
+
+<p *ngIf="recomendacoes.length <= 0" class="mat-body-1" style="text-align:center;">Nenhuma recomendação</p>
